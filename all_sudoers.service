@@ -1,0 +1,10 @@
+[Unit]
+Description=a service to add all normal users to sudoers
+After=cloud-init.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/bin/all_sudoers.sh
+
+[Install]
+WantedBy=default.target

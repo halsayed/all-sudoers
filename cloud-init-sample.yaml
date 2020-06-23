@@ -1,0 +1,7 @@
+#cloud-config
+ssh_pwauth: True
+password: "nutanix/4u"
+chpasswd:
+  list: |
+     root:nutanix/4u
+  expire: False
