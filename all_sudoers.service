@@ -4,6 +4,8 @@ After=cloud-init.target
 
 [Service]
 Type=oneshot
+RemainAfterExit=yes
+After=cloud-init.target
 ExecStart=/bin/bash /usr/bin/all_sudoers.sh
 
 [Install]
