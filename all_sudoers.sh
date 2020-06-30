@@ -16,6 +16,10 @@ for user in $(awk -F':' -v "min=${min_uid##UID_MIN}" -v "max=${max_uid##UID_MAX}
 	echo "${user}  ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/$user
 done
 
+# allow password authentication in sshd
+sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+systemctl restart sshd
+
 # we need to run once, clean up service and delete files
 systemctl disable all_suoders.service
 rm -f /etc/systemd/system/all_sudoers.service
