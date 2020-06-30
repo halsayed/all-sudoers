@@ -24,7 +24,9 @@ Create you custom linux image, a sample cloud-init is provided in this repo. Jus
 **Step 2:** Add a service to run after cloud-init, it will run once after booting.
 
 `curl -o /etc/systemd/system/all_sudoers.service https://raw.githubusercontent.com/halsayed/all-sudoers/master/all_sudoers.service`
+
 `systemctl daemon-reload`
+
 `systemctl enable all_sudoers.service`
 
 
